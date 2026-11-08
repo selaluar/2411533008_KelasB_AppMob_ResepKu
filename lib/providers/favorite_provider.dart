@@ -6,7 +6,6 @@ class FavoriteProvider extends ChangeNotifier {
 
   // Dari luar hanya boleh dibaca, tidak boleh diubah langsung
   List<Recipe> get items => List.unmodifiable(_items);
-
   int get count => _items.length;
 
   bool isFavorite(Recipe recipe) => _items.any((r) => r.id == recipe.id);

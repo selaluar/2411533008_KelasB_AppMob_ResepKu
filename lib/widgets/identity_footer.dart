@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 const String kNim = '2411533008';
 const String kNama = 'Arya Pratama Hendri';
 
-/// Menampilkan NIM dan nama di bawah setiap halaman.
-/// Dipasang sekali di MaterialApp.builder, jadi berlaku untuk semua route.
 class IdentityFooter extends StatelessWidget {
   const IdentityFooter({super.key, required this.child});
 
