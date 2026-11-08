@@ -7,6 +7,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // watch: switch ikut berubah saat tema berganti
     final isDarkMode = context.watch<ThemeProvider>().isDarkMode;
 
     return Scaffold(
@@ -15,10 +16,11 @@ class SettingsPage extends StatelessWidget {
         children: [
           SwitchListTile(
             title: const Text('Mode gelap'),
+            subtitle: const Text('Ubah tampilan seluruh aplikasi'),
             secondary: const Icon(Icons.dark_mode_outlined),
             value: isDarkMode,
-            onChanged: (value) =>
-                context.read<ThemeProvider>().setDarkMode(value),
+            // read: di dalam callback cukup memanggil method
+            onChanged: (value) => context.read<ThemeProvider>().setDarkMode(value),
           ),
         ],
       ),

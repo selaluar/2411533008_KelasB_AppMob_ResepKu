@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
         title: const Text('ResepKu'),
         actions: [
           const FavoriteBadgeButton(),
+          // Latihan 1: tombol menuju halaman Pengaturan
           IconButton(
             tooltip: 'Pengaturan',
             icon: const Icon(Icons.settings),

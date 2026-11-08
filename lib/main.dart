@@ -10,7 +10,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => FavoriteProvider()),
-        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()), // Latihan 1
       ],
       child: const ResepKuApp(),
     ),
@@ -30,7 +30,7 @@ class ResepKuApp extends StatelessWidget {
         colorSchemeSeed: Colors.deepOrange,
         brightness: Brightness.dark,
       ),
-      // watch: MaterialApp harus rebuild saat mode tema berubah
+      // watch: MaterialApp harus rebuild setiap kali tema diubah
       themeMode: context.watch<ThemeProvider>().themeMode,
       builder: (context, child) => IdentityFooter(child: child!), // jangan dihapus
       home: const HomePage(),

@@ -6,12 +6,12 @@ class FavoritePage extends StatelessWidget {
   const FavoritePage({super.key});
 
   // Latihan 2: minta konfirmasi sebelum menghapus semua favorit
-  Future<void> _confirmClearAll(BuildContext context) async {
+  Future<void> _confirmClear(BuildContext context) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: const Text('Hapus semua favorit?'),
-        content: const Text('Semua resep akan dikeluarkan dari daftar favorit.'),
+        content: const Text('Semua resep akan dihapus dari daftar favorit.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
@@ -32,17 +32,18 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // watch: tombol "Hapus semua" ikut aktif/nonaktif saat jumlah favorit berubah
     final count = context.watch<FavoriteProvider>().count;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorit Saya'),
         actions: [
-          IconButton(
-            tooltip: 'Hapus semua',
-            icon: const Icon(Icons.delete_sweep),
-            // null = tombol nonaktif ketika daftar favorit kosong
-            onPressed: count == 0 ? null : () => _confirmClearAll(context),
+          TextButton.icon(
+            // onPressed null = tombol nonaktif ketika daftar kosong
+            onPressed: count == 0 ? null : () => _confirmClear(context),
+            icon: const Icon(Icons.delete_sweep_outlined),
+            label: const Text('Hapus semua'),
           ),
         ],
       ),
