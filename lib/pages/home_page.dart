@@ -33,10 +33,9 @@ class _HomePageState extends State<HomePage> {
             onPressed: () => setState(() => _isGrid = !_isGrid),
           ),
           const FavoriteBadgeButton(),
-          // Latihan 1 Modul 6: tombol menuju halaman Pengaturan
           IconButton(
             tooltip: 'Pengaturan',
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.settings_outlined),
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const SettingsPage()),
